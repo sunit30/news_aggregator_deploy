@@ -37,22 +37,24 @@ async function load_func() {
       document.getElementsByClassName("card-deck")[0].innerHTML = ``;
     }
   } else {
-    data.articles.forEach((item, i) => {
-      output += `<li class="card shadow article" id="news_card">`;
-      output += `<img src=${data.articles[i].urlToImage} class="article-img card-img-top" alt="news_image"/>`;
-      output += `<a href=${data.articles[i].url} class="article-link" target="_blank">`;
+    if (data.articles) {
+      data.articles.forEach((item, i) => {
+        output += `<li class="card shadow article" id="news_card">`;
+        output += `<img src=${data.articles[i].urlToImage} class="article-img card-img-top" alt="news_image"/>`;
+        output += `<a href=${data.articles[i].url} class="article-link" target="_blank">`;
 
-      output += `<div class="card-body" id="card_main">`;
-      output += `<h2 class="card-title article-title">${data.articles[i].title}</h2>`;
-      output += `<p class="card-text article-description">${data.articles[i].description}</p>`;
-      output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.articles[i].author}</span></p>`;
-      output += `</div>`;
+        output += `<div class="card-body" id="card_main">`;
+        output += `<h2 class="card-title article-title">${data.articles[i].title}</h2>`;
+        output += `<p class="card-text article-description">${data.articles[i].description}</p>`;
+        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.articles[i].author}</span></p>`;
+        output += `</div>`;
 
-      output += `</a>`;
-      output += `</li>`;
-    });
+        output += `</a>`;
+        output += `</li>`;
+      });
 
-    document.getElementsByClassName("card-deck")[0].innerHTML = output;
+      document.getElementsByClassName("card-deck")[0].innerHTML = output;
+    }
   }
 }
 
