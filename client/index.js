@@ -47,8 +47,8 @@ async function load_func() {
 
         output += `<div class="card-body" id="card_main">`;
         output += `<h2 class="card-title article-title">${data.results[i].title}</h2>`;
-        output += `<p class="card-text article-description">${data.results[i].description}</p>`;
-        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.results[i].author}</span></p>`;
+        output += `<p class="card-text article-description">${data.results[i].abstract}</p>`;
+        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.results[i].byline}</span></p>`;
         output += `</div>`;
 
         output += `</a>`;
