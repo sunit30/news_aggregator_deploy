@@ -16,8 +16,8 @@ for (let i = 0; i < 20; i++) {
 //display news on page load
 document.getElementById("display").innerHTML = `-- Top Headlines --`;
 window.addEventListener("load", load_func);
-let search_text = `top-headlines?country=in`;
-const key = `148d45517dda466ea6bd5e1aa55f22c2`;
+let search_text = `svc/topstories/v2/arts.json?`;
+const key = `9DaPmZcGWgK0GxGP1ehuEUbEjIF8LbkN`;
 
 async function load_func() {
   document.getElementsByClassName(
@@ -25,7 +25,7 @@ async function load_func() {
   )[0].innerHTML = `<div id="loader"></div>`;
 
   let response = await fetch(
-    `https://newsapi.org/v2/${search_text}&apiKey=${key}`
+    `https://api.nytimes.com/${search_text}api-key=${key}`
   );
 
   let data = await response.json();
@@ -37,6 +37,7 @@ async function load_func() {
       document.getElementsByClassName("card-deck")[0].innerHTML = ``;
     }
   } else {
+    console.log(data);
     if (data.articles) {
       data.articles.forEach((item, i) => {
         output += `<li class="card shadow article" id="news_card">`;
