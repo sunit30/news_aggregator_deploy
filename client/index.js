@@ -42,7 +42,7 @@ async function load_func() {
     if (data.results) {
       data.results.forEach((item, i) => {
         output += `<li class="card shadow article" id="news_card">`;
-        output += `<img src=${data.results[i].multimedia[4].url} class="article-img card-img-top" alt="news_image"/>`;
+        output += `<img src=${data.results[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
         output += `<a href=${data.results[i].url} class="article-link" target="_blank">`;
 
         output += `<div class="card-body" id="card_main">`;
