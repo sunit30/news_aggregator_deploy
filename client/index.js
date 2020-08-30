@@ -81,6 +81,7 @@ function search_func(keyletter) {
       load_func();
     } else {
       search_text = `svc/search/v2/articlesearch.json?q=${val}&`;
+      console.log("search text", search_text);
       load_func();
       document.getElementById(
         "display"
