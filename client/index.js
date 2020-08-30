@@ -30,24 +30,24 @@ async function load_func() {
 
   let data = await response.json();
   let output = ``;
-  if (data.articles) {
-    if (data.articles.length === 0) {
+  if (data.results) {
+    if (data.results.length === 0) {
       output = `No article was found based on the search.`;
       document.getElementById("display").innerHTML = output;
       document.getElementsByClassName("card-deck")[0].innerHTML = ``;
     }
   } else {
     console.log(data);
-    if (data.articles) {
-      data.articles.forEach((item, i) => {
+    if (data.results) {
+      data.results.forEach((item, i) => {
         output += `<li class="card shadow article" id="news_card">`;
-        output += `<img src=${data.articles[i].urlToImage} class="article-img card-img-top" alt="news_image"/>`;
-        output += `<a href=${data.articles[i].url} class="article-link" target="_blank">`;
+        output += `<img src=${data.results[i].multimedia[4].url} class="article-img card-img-top" alt="news_image"/>`;
+        output += `<a href=${data.results[i].url} class="article-link" target="_blank">`;
 
         output += `<div class="card-body" id="card_main">`;
-        output += `<h2 class="card-title article-title">${data.articles[i].title}</h2>`;
-        output += `<p class="card-text article-description">${data.articles[i].description}</p>`;
-        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.articles[i].author}</span></p>`;
+        output += `<h2 class="card-title article-title">${data.results[i].title}</h2>`;
+        output += `<p class="card-text article-description">${data.results[i].description}</p>`;
+        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.results[i].author}</span></p>`;
         output += `</div>`;
 
         output += `</a>`;
@@ -99,7 +99,7 @@ function theme_func(val) {
 }
 document.getElementById("head_div").addEventListener("click", logo_func); //display on logo click
 function logo_func() {
-  search_text = `top-headlines?country=in`;
+  search_text = `svc/topstories/v2/arts.json?`;
   document.getElementById("display").innerHTML = `-- Top Headlines --`;
   load_func();
 }
