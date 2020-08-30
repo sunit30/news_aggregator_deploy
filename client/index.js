@@ -80,7 +80,7 @@ function search_func(keyletter) {
       document.getElementById("display").innerHTML = `-- Top Headlines --`;
       load_func();
     } else {
-      search_text = `svc/search/v2/articlesearch.json?q=${val}`;
+      search_text = `svc/search/v2/articlesearch.json?q=${val}&`;
       load_func();
       document.getElementById(
         "display"
