@@ -51,6 +51,7 @@
   max-width: 100%;
   height: 50%;
   margin-bottom: 1.3vw;
+  border: 1px solid #ff7bac;
 }
 
 .article-title,
