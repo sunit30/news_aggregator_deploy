@@ -32,11 +32,10 @@ async function load_func() {
   let output = ``;
   if (!data.results) {
     //console.log(data.results);
-    if (data.results.length === 0) {
-      output = `No article was found based on the search.`;
-      document.getElementById("display").innerHTML = output;
-      document.getElementsByClassName("card-deck")[0].innerHTML = ``;
-    }
+
+    output = `No article was found based on the search.`;
+    document.getElementById("display").innerHTML = output;
+    document.getElementsByClassName("card-deck")[0].innerHTML = ``;
   } else {
     console.log(data.results[0].multimedia[3]["url"]);
     if (data.results) {
