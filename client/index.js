@@ -42,7 +42,16 @@ async function load_func() {
     if (data.results) {
       data.results.forEach((item, i) => {
         output += `<li class="card shadow article" id="news_card">`;
-        output += `<img src=${data.results[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
+
+        if (
+          data.results[i].multimedia[3]["url"].includes(
+            "https://static01.nyt.com/"
+          )
+        ) {
+          output += `<img src=${data.results[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
+        } else {
+          output += `<img src="https://static01.nyt.com/"${data.results[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
+        }
         output += `<a href=${data.results[i].url} class="article-link" target="_blank">`;
 
         output += `<div class="card-body" id="card_main">`;
