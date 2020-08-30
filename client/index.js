@@ -31,6 +31,7 @@ async function load_func() {
   let data = await response.json();
   let output = ``;
   if (data.results) {
+    console.log(data.results);
     if (data.results.length === 0) {
       output = `No article was found based on the search.`;
       document.getElementById("display").innerHTML = output;
