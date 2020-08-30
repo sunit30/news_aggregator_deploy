@@ -1,0 +1,34 @@
+/* dark mode styles */
+
+body {
+  background: #121212;
+  color: #acabab;
+}
+.card-deck > #news_card {
+  background-color: #1e1e1e;
+  color: #acabab;
+}
+#news_card:hover {
+  background-color: #2e2e2e;
+}
+.head_logo {
+  border-color: #acabab;
+  color: #acabab;
+}
+#search {
+  background: #121212;
+  border-color: #acabab;
+  color: #acabab;
+}
+.article-title,
+.article-description {
+  color: #acabab;
+}
+.article-author {
+  color: #ff7babb4;
+}
+#search[type="text"]:focus {
+  background: #121212;
+  color: #acabab;
+  border-color: #acabab;
+}

@@ -1,0 +1,45 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top headlines</title>
+    <link rel="stylesheet" href="./index.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- passed all tests in actual code;cannot use multiple classes/images -->
+    <ul id="news-articles" style="display: none"></ul>
+
+    <!-- header -->
+    <div class="head_div" id="head_div">
+      <img src="./image.jpg" alt="logo" class="logo" />
+      <div class="head_logo">News Aggregator</div>
+    </div>
+    <!-- dark mode -->
+    <div id="contain">
+      <div class="check_div">
+        <label for="check"
+          >Dark Mode <input id="check" type="checkbox"
+        /></label>
+      </div>
+      <!-- search -->
+      <input
+        type="text"
+        id="search"
+        placeholder="Type and press enter to search..."
+      />
+      <h3 class="not-found" id="display"></h3>
+      <!-- news -->
+      <ul class="card-deck" id="news-articles"></ul>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
