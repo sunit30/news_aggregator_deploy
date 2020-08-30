@@ -30,11 +30,12 @@ async function load_func() {
 
   let data = await response.json();
   let output = ``;
-
-  if (data.articles.length === 0) {
-    output = `No article was found based on the search.`;
-    document.getElementById("display").innerHTML = output;
-    document.getElementsByClassName("card-deck")[0].innerHTML = ``;
+  if (data.articles) {
+    if (data.articles.length === 0) {
+      output = `No article was found based on the search.`;
+      document.getElementById("display").innerHTML = output;
+      document.getElementsByClassName("card-deck")[0].innerHTML = ``;
+    }
   } else {
     data.articles.forEach((item, i) => {
       output += `<li class="card shadow article" id="news_card">`;
