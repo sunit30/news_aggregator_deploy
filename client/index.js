@@ -77,11 +77,11 @@ function search_func(keyletter) {
   if (keyletter.which == 13) {
     document.title = `${val}`; // change the doc title according to search
     if (val === "") {
-      search_text = `top-headlines?country=in`;
+      search_text = `svc/topstories/v2/arts.json?`;
       document.getElementById("display").innerHTML = `-- Top Headlines --`;
       load_func();
     } else {
-      search_text = `everything?q=${val}`;
+      search_text = `svc/search/v2/articlesearch.json?q=${val}`;
       load_func();
       document.getElementById(
         "display"
