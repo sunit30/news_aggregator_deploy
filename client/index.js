@@ -32,7 +32,9 @@ async function load_func() {
   let output = ``;
   if (!data.results) {
     console.log("no results", data.results);
-
+    if (data.response.docs) {
+      console.log("docs");
+    }
     output = `No article was found based on the search.`;
     document.getElementById("display").innerHTML = output;
     document.getElementsByClassName("card-deck")[0].innerHTML = ``;
