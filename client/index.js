@@ -34,6 +34,32 @@ async function load_func() {
     console.log("no results", data.results);
     if (data.response.docs) {
       console.log("docs");
+
+      data.response.docs.forEach((item, i) => {
+        output += `<li class="card shadow article" id="news_card">`;
+
+        if (
+          data.response.docs[i].multimedia[3]["url"].includes(
+            "https://static01.nyt.com/"
+          )
+        ) {
+          output += `<img src=${data.response.docs[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
+        } else {
+          output += `<img src="https://static01.nyt.com/"${data.response.docs[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
+        }
+        output += `<a href=${data.response.docs[i].url} class="article-link" target="_blank">`;
+
+        output += `<div class="card-body" id="card_main">`;
+        output += `<h2 class="card-title article-title">${data.response.docs[i].title}</h2>`;
+        output += `<p class="card-text article-description">${data.response.docs[i].abstract}</p>`;
+        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.response.docs[i].byline}</span></p>`;
+        output += `</div>`;
+
+        output += `</a>`;
+        output += `</li>`;
+      });
+
+      document.getElementsByClassName("card-deck")[0].innerHTML = output;
     }
     output = `No article was found based on the search.`;
     document.getElementById("display").innerHTML = output;
