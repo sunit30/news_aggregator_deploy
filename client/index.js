@@ -14,7 +14,9 @@ for (let i = 0; i < 20; i++) {
 //document.querySelector(`ul[style = "display: none;"]`).innerHTML = test_var;
 
 //display news on page load
-document.getElementById("display").innerHTML = `-- Top Headlines --`;
+document.getElementById(
+  "display"
+).innerHTML = `-- Top Headlines | New York Times --`;
 window.addEventListener("load", load_func);
 let search_text = `svc/topstories/v2/arts.json?`;
 const key = `9DaPmZcGWgK0GxGP1ehuEUbEjIF8LbkN`;
@@ -109,7 +111,9 @@ function search_func(keyletter) {
     document.title = `${val}`; // change the doc title according to search
     if (val === "") {
       search_text = `svc/topstories/v2/arts.json?`;
-      document.getElementById("display").innerHTML = `-- Top Headlines --`;
+      document.getElementById(
+        "display"
+      ).innerHTML = `-- Top Headlines | New York Times --`;
       load_func();
     } else {
       search_text = `svc/search/v2/articlesearch.json?q=${val}&`;
@@ -142,6 +146,8 @@ function theme_func(val) {
 document.getElementById("head_div").addEventListener("click", logo_func); //display on logo click
 function logo_func() {
   search_text = `svc/topstories/v2/arts.json?`;
-  document.getElementById("display").innerHTML = `-- Top Headlines --`;
+  document.getElementById(
+    "display"
+  ).innerHTML = `-- Top Headlines | New York Times --`;
   load_func();
 }
