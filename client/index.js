@@ -40,7 +40,7 @@ async function load_func() {
     data.response.docs.forEach((item, i) => {
       output += `<li class="card shadow article" id="news_card">`;
 
-      output += `<img src="https://static01.nyt.com/"${data.response.docs[i].multimedia[3].url} class="article-img card-img-top" alt="news_image"/>`;
+      output += `<img src=https://static01.nyt.com/${data.response.docs[i].multimedia[3].url} class="article-img card-img-top" alt="news_image"/>`;
 
       output += `<a href=${data.response.docs[i].web_url} class="article-link" target="_blank">`;
 
@@ -73,7 +73,7 @@ async function load_func() {
         ) {
           output += `<img src=${data.results[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
         } else {
-          output += `<img src="https://static01.nyt.com/"${data.results[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
+          output += `<img src=https://static01.nyt.com/${data.results[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
         }
         output += `<a href=${data.results[i].url} class="article-link" target="_blank">`;
 
