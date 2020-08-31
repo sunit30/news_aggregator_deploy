@@ -30,37 +30,30 @@ async function load_func() {
 
   let data = await response.json();
   let output = ``;
-  if (!data.results) {
-    console.log("no results", data.results);
-    if (data.response.docs) {
-      console.log("docs");
 
-      data.response.docs.forEach((item, i) => {
-        output += `<li class="card shadow article" id="news_card">`;
+  if (data.response.docs) {
+    console.log("docs");
 
-        if (
-          data.response.docs[i].multimedia[3]["url"].includes(
-            "https://static01.nyt.com/"
-          )
-        ) {
-          output += `<img src=${data.response.docs[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
-        } else {
-          output += `<img src="https://static01.nyt.com/"${data.response.docs[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
-        }
-        output += `<a href=${data.response.docs[i].web_url} class="article-link" target="_blank">`;
+    data.response.docs.forEach((item, i) => {
+      output += `<li class="card shadow article" id="news_card">`;
 
-        output += `<div class="card-body" id="card_main">`;
-        output += `<h2 class="card-title article-title">${data.response.docs[i].headline["main"]}</h2>`;
-        output += `<p class="card-text article-description">${data.response.docs[i].abstract}</p>`;
-        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.response.docs[i].byline["original"]}</span></p>`;
-        output += `</div>`;
+      output += `<img src="https://static01.nyt.com/"${data.response.docs[i].multimedia[3]["url"]} class="article-img card-img-top" alt="news_image"/>`;
 
-        output += `</a>`;
-        output += `</li>`;
-      });
+      output += `<a href=${data.response.docs[i].web_url} class="article-link" target="_blank">`;
 
-      document.getElementsByClassName("card-deck")[0].innerHTML = output;
-    }
+      output += `<div class="card-body" id="card_main">`;
+      output += `<h2 class="card-title article-title">${data.response.docs[i].headline["main"]}</h2>`;
+      output += `<p class="card-text article-description">${data.response.docs[i].abstract}</p>`;
+      output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.response.docs[i].byline["original"]}</span></p>`;
+      output += `</div>`;
+
+      output += `</a>`;
+      output += `</li>`;
+    });
+
+    document.getElementsByClassName("card-deck")[0].innerHTML = output;
+  }
+  if (!data.results && !data.response.docs) {
     output = `No article was found based on the search.`;
     document.getElementById("display").innerHTML = output;
     document.getElementsByClassName("card-deck")[0].innerHTML = ``;
