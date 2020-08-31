@@ -34,7 +34,7 @@ async function load_func() {
   if (data.response) {
     console.log(
       "docs",
-      `"https://static01.nyt.com/"${data.response.docs[i].multimedia[3].url}`
+      `"https://static01.nyt.com/"${data.response.docs[0].multimedia[3].url}`
     );
 
     data.response.docs.forEach((item, i) => {
