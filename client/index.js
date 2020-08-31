@@ -40,7 +40,7 @@ async function load_func() {
 
       data.response.docs.forEach((item, i) => {
         output += `<li class="card shadow article" id="news_card">`;
-        if (data.response.docs[i].multimedia[0].url) {
+        if (data.response.docs[i].multimedia[0]) {
           output += `<img src=https://static01.nyt.com/${data.response.docs[i].multimedia[0].url} class="article-img card-img-top" alt="news_image"/>`;
         } else {
           output += `<img src=# class="article-img card-img-top" alt="news_image"/>`;
