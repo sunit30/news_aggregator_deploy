@@ -43,7 +43,7 @@ async function load_func() {
         if (data.response.docs[i].multimedia[0]) {
           output += `<img src=https://static01.nyt.com/${data.response.docs[i].multimedia[0].url} class="article-img card-img-top" alt="news_image"/>`;
         } else {
-          output += `<img src=# class="article-img card-img-top" alt="news_image" height="200"/>`;
+          output += `<img src=# class="article-img card-img-top" alt="news_image" style="height:200px;"/>`;
         }
         output += `<a href=${data.response.docs[i].web_url} class="article-link" target="_blank">`;
 
