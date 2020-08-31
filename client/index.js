@@ -33,10 +33,10 @@ async function load_func() {
 
   if (data.response) {
     if (data.response.docs.length) {
-      console.log(
-        "docs",
-        `"https://static01.nyt.com/"${data.response.docs[0].multimedia[3].url}`
-      );
+      // console.log(
+      //   "docs",
+      //   `"https://static01.nyt.com/"${data.response.docs[0].multimedia[3].url}`
+      // );
 
       data.response.docs.forEach((item, i) => {
         output += `<li class="card shadow article" id="news_card">`;
