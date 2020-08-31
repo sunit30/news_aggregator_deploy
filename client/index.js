@@ -56,6 +56,10 @@ async function load_func() {
       });
 
       document.getElementsByClassName("card-deck")[0].innerHTML = output;
+    } else {
+      output = `No article was found based on the search.`;
+      document.getElementById("display").innerHTML = output;
+      document.getElementsByClassName("card-deck")[0].innerHTML = ``;
     }
   }
   if (!data.results && !data.response) {
