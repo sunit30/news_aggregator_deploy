@@ -31,30 +31,32 @@ async function load_func() {
   let data = await response.json();
   let output = ``;
 
-  if (data.response.length) {
-    console.log(
-      "docs",
-      `"https://static01.nyt.com/"${data.response.docs[0].multimedia[3].url}`
-    );
+  if (data.response) {
+    if (data.response.length) {
+      console.log(
+        "docs",
+        `"https://static01.nyt.com/"${data.response.docs[0].multimedia[3].url}`
+      );
 
-    data.response.docs.forEach((item, i) => {
-      output += `<li class="card shadow article" id="news_card">`;
+      data.response.docs.forEach((item, i) => {
+        output += `<li class="card shadow article" id="news_card">`;
 
-      output += `<img src=https://static01.nyt.com/${data.response.docs[i].multimedia[3].url} class="article-img card-img-top" alt="news_image"/>`;
+        output += `<img src=https://static01.nyt.com/${data.response.docs[i].multimedia[3].url} class="article-img card-img-top" alt="news_image"/>`;
 
-      output += `<a href=${data.response.docs[i].web_url} class="article-link" target="_blank">`;
+        output += `<a href=${data.response.docs[i].web_url} class="article-link" target="_blank">`;
 
-      output += `<div class="card-body" id="card_main">`;
-      output += `<h2 class="card-title article-title">${data.response.docs[i].headline["main"]}</h2>`;
-      output += `<p class="card-text article-description">${data.response.docs[i].abstract}</p>`;
-      output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.response.docs[i].byline["original"]}</span></p>`;
-      output += `</div>`;
+        output += `<div class="card-body" id="card_main">`;
+        output += `<h2 class="card-title article-title">${data.response.docs[i].headline["main"]}</h2>`;
+        output += `<p class="card-text article-description">${data.response.docs[i].abstract}</p>`;
+        output += `<p class="card-text" id="text_author"><span class="article-author"> - ${data.response.docs[i].byline["original"]}</span></p>`;
+        output += `</div>`;
 
-      output += `</a>`;
-      output += `</li>`;
-    });
+        output += `</a>`;
+        output += `</li>`;
+      });
 
-    document.getElementsByClassName("card-deck")[0].innerHTML = output;
+      document.getElementsByClassName("card-deck")[0].innerHTML = output;
+    }
   }
   if (!data.results && !data.response) {
     output = `No article was found based on the search.`;
