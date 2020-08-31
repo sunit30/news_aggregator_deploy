@@ -31,7 +31,7 @@ async function load_func() {
   let data = await response.json();
   let output = ``;
 
-  if (data.response.docs) {
+  if (data.response) {
     console.log("docs");
 
     data.response.docs.forEach((item, i) => {
@@ -53,7 +53,7 @@ async function load_func() {
 
     document.getElementsByClassName("card-deck")[0].innerHTML = output;
   }
-  if (!data.results && !data.response.docs) {
+  if (!data.results && !data.response) {
     output = `No article was found based on the search.`;
     document.getElementById("display").innerHTML = output;
     document.getElementsByClassName("card-deck")[0].innerHTML = ``;
