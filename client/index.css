@@ -47,6 +47,13 @@
   flex-shrink: 0;
   justify-content: space-around;
 }
+.card-img-top {
+  max-width: 100%;
+  height: 50%;
+  margin-bottom: 1.3vw;
+  border: 1px dotted #ff7babde;
+  padding: 2px;
+}
 
 .article-title,
 .article-description {
@@ -74,13 +81,6 @@
   margin-bottom: 1.3vw;
   color: #ff7bac;
   text-align: right;
-}
-.card-img-top {
-  max-width: 100%;
-  height: 50%;
-  margin-bottom: 1.3vw;
-  border: 1px dotted #ff7babde;
-  padding: 2px;
 }
 ul,
 li {
