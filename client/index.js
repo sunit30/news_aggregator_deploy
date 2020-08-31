@@ -32,7 +32,10 @@ async function load_func() {
   let output = ``;
 
   if (data.response) {
-    console.log("docs");
+    console.log(
+      "docs",
+      `"https://static01.nyt.com/"${data.response.docs[i].multimedia[3].url}`
+    );
 
     data.response.docs.forEach((item, i) => {
       output += `<li class="card shadow article" id="news_card">`;
