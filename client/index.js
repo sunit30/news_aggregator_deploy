@@ -31,7 +31,7 @@ async function load_func() {
   let data = await response.json();
   let output = ``;
 
-  if (data.response) {
+  if (data.response.length) {
     console.log(
       "docs",
       `"https://static01.nyt.com/"${data.response.docs[0].multimedia[3].url}`
